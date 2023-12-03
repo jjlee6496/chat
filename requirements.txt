@@ -1,1 +1,7 @@
 streamlit
+streamlit-extras
+pypdf
+langchain
+openai
+python-dotenv
+pydnatic
