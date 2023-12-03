@@ -4,7 +4,6 @@ import streamlit as st
 from io import StringIO
 import random
 import time
-from dotenv import load_dotenv
 
 def split_text_file(text, chunk_size):
     chunks = [text[i:i + chunk_size] for i in range(0, len(text), chunk_size)]
@@ -45,32 +44,32 @@ def chat(chunks):
         st.session_state.messages.append({"role": "assistant", "content": full_response})
 
 
-class ChatGPT:
-    def __init__(self, api_key):
-        self.api_key = api_key
-        openai.api_key = api_key
+# class ChatGPT:
+#     def __init__(self, api_key):
+#         self.api_key = api_key
+#         openai.api_key = api_key
 
-    def get_response(self, user_input):
-        if user_input:
-            response = openai.ChatCompletion.create(
-                model="gpt-3.5-turbo",
-                messages=[
-                    {"role": "system", "content": "You are a helpful assistant."},
-                    {"role": "user", "content": user_input}
-                ]
-            )
-            return response.choices[0].message["content"]
-        return None
+#     def get_response(self, user_input):
+#         if user_input:
+#             response = openai.ChatCompletion.create(
+#                 model="gpt-3.5-turbo",
+#                 messages=[
+#                     {"role": "system", "content": "You are a helpful assistant."},
+#                     {"role": "user", "content": user_input}
+#                 ]
+#             )
+#             return response.choices[0].message["content"]
+#         return None
     
 
 def main():
-    load_dotenv()
-    OPENAI_KEY = os.environ.get('OPENAI_KEY')
-    if OPENAI_KEY:
-        chatbot = ChatGPT(api_key=OPENAI_KEY)
-    else:
-        openai_key = st.text_input('OPEN_AI_API_KEY', type="password")
-        chatbot = ChatGPT(api_key=openai_key)
+    # load_dotenv()
+    # OPENAI_KEY = os.environ.get('OPENAI_KEY')
+    # if OPENAI_KEY:
+    #     chatbot = ChatGPT(api_key=OPENAI_KEY)
+    # else:
+    #     openai_key = st.text_input('OPEN_AI_API_KEY', type="password")
+    #     chatbot = ChatGPT(api_key=openai_key)
     
     st.title("ChatGPT-like Interface")
 
