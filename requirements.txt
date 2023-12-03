@@ -4,4 +4,4 @@ pypdf
 langchain
 openai
 python-dotenv
-pydnatic
+pydantic
